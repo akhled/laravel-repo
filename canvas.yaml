@@ -1,0 +1,27 @@
+preset: package
+
+namespace: LDK\DashboardCleopatra
+user-auth-provider: App\User
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: database/factories
+
+migration:
+  path: database/migrations
+  prefix: ''
+
+console:
+  namespace: LDK\DashboardCleopatra\Console
+
+model:
+  namespace: LDK\DashboardCleopatra
+
+provider:
+  namespace: LDK\DashboardCleopatra\Providers
+
+testing:
+  namespace: LDK\DashboardCleopatra\Tests

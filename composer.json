@@ -1,0 +1,37 @@
+{
+  "name": "akhled/laravel-repo",
+  "description": "My Laravel repo",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Amr Khaled",
+      "email": "i@akhaled.com"
+    }
+  ],
+  "require": {
+
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "orchestra/canvas": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Akhaled\\LaravelRepo\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Akhaled\\LaravelRepo\\Providers\\LaravelRepoServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit --testdox",
+    "test-f": "./vendor/bin/phpunit --testdox --filter",
+    "post-autoload-dump": [
+      "@php ./vendor/bin/testbench package:discover --ansi"
+    ]
+  }
+}
