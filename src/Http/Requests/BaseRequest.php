@@ -29,6 +29,12 @@ abstract class BaseRequest extends FormRequest
 
     public function inputs()
     {
-        return $this->only(Arr::except(array_keys($this->rules() ?? []), ['*']));
+        $inputs = $this->rules() ?? [];
+
+        $filtered = array_filter($inputs, function($key) {
+            return strpos('.*', $key) < 1;
+        }, ARRAY_FILTER_USE_KEY);
+
+        return $this->only($filtered);
     }
 }
