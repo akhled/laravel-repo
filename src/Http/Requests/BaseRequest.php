@@ -2,6 +2,7 @@
 
 namespace Akhaled\LaravelRepo\Http\Requests;
 
+use Illuminate\Support\Arr;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Auth\Authenticatable;
 
@@ -28,6 +29,6 @@ abstract class BaseRequest extends FormRequest
 
     public function inputs()
     {
-        return $this->only(array_keys($this->rules() ?? []));
+        return $this->only(Arr::except(array_keys($this->rules() ?? []), ['*']));
     }
 }

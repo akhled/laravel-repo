@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait CreatedAtNewFirst
 {
-    public static function bootCreatedAtFirst()
+    public static function booted()
     {
+        parent::booted();
+
         static::addGlobalScope('order', function (Builder $builder) {
             $builder->orderBy('created_at', 'desc');
         });
